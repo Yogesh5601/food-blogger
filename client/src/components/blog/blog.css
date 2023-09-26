@@ -1,0 +1,78 @@
+
+.title{
+    font-size: 22px;
+    font-weight: 500;
+}
+.title:hover{
+color: #a0b403;
+}
+.description{
+    font-size: 14px;
+}
+.category{
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 15px;
+    background: #a0b403;
+    border-radius: 5px;
+}
+.author{
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    color: rgb(114, 114, 110);
+    font-family: cursive;
+}
+.author:hover{
+    color: #a0b403;
+}
+.read-more{
+    background: #a0b403;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 10px;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+}
+.read-more:hover{
+    background: #a0b403;
+}
+/* card buttons */
+.btn_primary{
+    display: flex;
+    border-radius: 50%;
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 3px;
+    align-items: center;
+    cursor: pointer;
+}
+.btn_primary:hover{
+    color: #a0b403;
+    transform: translateY(-5px);
+}
+.card{
+    text-transform: capitalize;
+    color: white;
+    background: rgb(34, 34, 34);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+/* .card:hover{
+     transform: translateY(-10px);
+    transition: opacity .1s ease-in-out,transform .2s ease-in-out;
+} */
+.img{
+    object-position: center;
+}
+/* .img:hover{
+    overflow: hidden;
+    transform: scale(1.02);
+    transition: opacity .8s ease-,transform .20s ease;
+} */
+/* new blog buttons */
+.btn_submit{
+    background-color: #a0b403;
+    width: 100%;
+}

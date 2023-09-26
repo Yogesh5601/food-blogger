@@ -1,0 +1,33 @@
+.login-container{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: linear-gradient(rgba(34, 30, 30, 0.658), rgba(40, 40, 39, 0.433)), url("https://images.unsplash.com/photo-1564495584622-0bb3af6f668e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGZvb2QlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    object-position: top;
+    z-index: -1;
+}
+.inner-container{
+    width: 80%;
+    height: 80%;
+    background-image:  linear-gradient(rgba(5, 5, 5, 0.471), rgba(5, 5, 5, 0.471),rgba(5, 5, 5, 0.471),rgba(5, 5, 5, 0.471));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    z-index: 1;
+}
+.login-btn{
+    padding: 0.5rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+.login-btn:hover{
+    background: yellowgreen;
+    color: white;
+}
