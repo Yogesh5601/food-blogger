@@ -16,7 +16,7 @@ const EditBlog = () => {
   let params = useParams();
 
   const getData = async () => {
-    let res = await axios.get("http://localhost:5000/blog/" + params.id, {
+     await axios.get("http://localhost:5000/blog/" + params.id, {
       headers: { authorization: "Bearer " + localStorage.getItem("token") },
     })
     .then((res) =>{

@@ -63,8 +63,16 @@ color: #a0b403;
      transform: translateY(-10px);
     transition: opacity .1s ease-in-out,transform .2s ease-in-out;
 } */
+.image{
+background-color: #a0b403;
+overflow: hidden;
+}
 .img{
-    object-position: center;
+    object-fit: cover;
+    transition: all ease 1s;
+}
+.image:hover .img{
+    scale: 1.2;
 }
 /* .img:hover{
     overflow: hidden;

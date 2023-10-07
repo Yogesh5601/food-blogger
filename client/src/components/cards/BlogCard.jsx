@@ -42,13 +42,13 @@ const BlogCard = ({ blog }) => {
       <div className="cardBody col col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center">
         <div className="card p-2">
           <div
-            className="image w-100"
+            className="image"
             style={{ width: "100%", height: "250px" }}
           >
             <img
               src={blog.image}
               alt=""
-              className="img w-100 h-100 position-relative object-fit-cover "
+              className="img w-100 h-100"
             />
           </div>
           <Card.Body
