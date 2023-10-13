@@ -41,15 +41,8 @@ const BlogCard = ({ blog }) => {
     <>
       <div className="cardBody col col-12 col-sm-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center">
         <div className="card p-2">
-          <div
-            className="image"
-            style={{ width: "100%", height: "250px" }}
-          >
-            <img
-              src={blog.image}
-              alt=""
-              className="img w-100 h-100"
-            />
+          <div className="image" style={{ width: "100%", height: "250px" }}>
+            <img src={blog.image} alt="" className="img w-100 h-100" />
           </div>
           <Card.Body
             className="mt-2"
@@ -59,7 +52,7 @@ const BlogCard = ({ blog }) => {
               <span className="category">{blog.category.substring(0, 50)}</span>
             </div>
             <Card.Title className="title">
-              {blog.title.substring(0, 50)}
+              {blog.title.substring(0, 34)}
             </Card.Title>
             <Card.Text className="description">
               {blog.description.substring(0, 100)}...
@@ -79,24 +72,28 @@ const BlogCard = ({ blog }) => {
                   READ MORE
                 </button>
               </div>
-              <div className="col d-flex justify-content-end">
-                <div
-                  className="edit btn_primary"
-                  onClick={() => {
-                    editRequest(blog._id);
-                  }}
-                >
-                  <CreateIcon />
+              {!localStorage.getItem("username") ? (
+                ""
+              ) : (
+                <div className="col d-flex justify-content-end">
+                  <div
+                    className="edit btn_primary"
+                    onClick={() => {
+                      editRequest(blog._id);
+                    }}
+                  >
+                    <CreateIcon />
+                  </div>
+                  <div
+                    className="delete btn_primary "
+                    onClick={() => {
+                      deleteRequest(blog._id, blog.image);
+                    }}
+                  >
+                    <DeleteIcon />
+                  </div>
                 </div>
-                <div
-                  className="delete btn_primary "
-                  onClick={() => {
-                    deleteRequest(blog._id, blog.image);
-                  }}
-                >
-                  <DeleteIcon />
-                </div>
-              </div>
+              )}
             </div>
           </Card.Body>
         </div>

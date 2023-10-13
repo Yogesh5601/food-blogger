@@ -29,19 +29,19 @@ const UserLogin = () => {
       .post("http://localhost:5000/user/login", input)
       .then((res) => {
         console.log(res.data.message);
-        console.log(res.data.data.username)
+        console.log(res.data.data)
         localStorage.setItem("token", res.data.data.token);
-        localStorage.setItem("email", res.data.data.username);
+        localStorage.setItem("username",res.data.data.username)
         navigate("/");
       })
       .catch((error) => {
         console.log(error.response.data.message);
         setError(error.response.data.message);
       });
-    // setInput({
-    //   email: "",
-    //   password: "",
-    // });
+    setInput({
+      email: "",
+      password: "",
+    });
   };
   return (
     <>

@@ -33,6 +33,7 @@ function App() {
         { path: "readMore/:id", element: <ReadMore /> },
         { path: "editBlog/:id", element: <EditBlog /> },
         { path: "category/:category", element: <SingleCategory /> },
+        { path: "/logout"},
         { path: "*", element: <Nopage /> },
       ],
     },

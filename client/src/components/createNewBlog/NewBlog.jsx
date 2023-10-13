@@ -9,10 +9,10 @@ const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState();
-  const [selectedCate, setSelectedCate] = useState([])
   const [author, setAuthor] = useState("");
-  const [selectedFile, setSelectdeFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(pictureIcon);
+  const [selectedFile, setSelectdeFile] = useState(null);
+  const [selectedCate, setSelectedCate] = useState([]);
   const [isloading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState("");
@@ -33,36 +33,39 @@ const NewBlog = () => {
     formData.append("category", category);
     formData.append("photo", selectedFile);
     axios
-      .post("http://localhost:5000/blog", formData,{headers:{ Authorization:"Bearer" + localStorage.getItem("token")}})
+      .post("http://localhost:5000/blog", formData, {
+        headers: { Authorization: "Bearer" + localStorage.getItem("token") },
+      })
       .then((res) => {
-          setHasError(false);
-          setLoading(true);
+        setHasError(false);
+        setLoading(true);
         console.log(res);
         navigate("/");
       })
       .catch((error) => {
-         setLoading(true);
+        setLoading(true);
         console.log(error.response.data.message);
-       setHasError(true);
-       setLoading(false)
+        setHasError(true);
+        setLoading(false);
         setError(error.response.data.message);
       });
     event.preventDefault();
   };
 
   const getData = async () => {
-     await axios.get("http://localhost:5000/category/")
-    .then ((res) => {
-      console.log(res);
-      setSelectedCate(res.data.category);
-    }) .catch ((error) => {
-      console.log(error.response.message);
-    })
+    await axios
+      .get("http://localhost:5000/category/")
+      .then((res) => {
+        console.log(res);
+        setSelectedCate(res.data.category);
+        setAuthor(localStorage.getItem("username"));
+      })
+      .catch((error) => {
+        console.log(error.response.message);
+      });
   };
   useEffect(() => {
     getData();
-    console.log(localStorage.email)
-    setAuthor(localStorage.email);
   }, []);
 
   return (
@@ -82,7 +85,7 @@ const NewBlog = () => {
       {!isloading && !hasError && (
         <div
           className="newBlog d-flex flex-column justify-content-center mb-5"
-          style={{height:"100vh" }}
+          style={{ height: "100vh" }}
         >
           <Container className="d-flex flex-column">
             <h1 className="title">Add new blog</h1>
@@ -131,10 +134,7 @@ const NewBlog = () => {
               <input
                 type="text"
                 name="author"
-                onChange={(e) => {
-                  setAuthor(e.target.value);
-                }}
-                placeholder={author}
+                value={author}
                 className="inputs mt-2 p-1  rounded border-light bg-transparent text-white"
               />
               <input
@@ -165,9 +165,7 @@ const NewBlog = () => {
           </Container>
         </div>
       )}
-      {hasError && (
-      <h1>error {error}</h1>
-      )}
+      {hasError && <h1>error {error}</h1>}
     </>
   );
 };

@@ -1,16 +1,13 @@
-import {React, useState, useEffect} from 'react'
+import { React } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Col } from 'react-bootstrap'
 
-
-
-const CategoryCard = ({category}) => {
-const nevigate = useNavigate()
-
-const singleCategory =(category) => {
-  console.log(category)
-nevigate("/category/"+ category)
-}
+const CategoryCard = ({ category }) => {
+  
+  const nevigate = useNavigate();
+  const singleCategory = (category) => {
+    console.log(category);
+    nevigate("/category/" + category);
+  };
 
   return (
     <>
@@ -36,6 +33,6 @@ nevigate("/category/"+ category)
       </div>
     </>
   );
-}
+};
 
-export default CategoryCard
+export default CategoryCard;

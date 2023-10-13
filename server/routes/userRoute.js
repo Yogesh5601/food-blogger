@@ -53,11 +53,9 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ userId: user._id }, secret_key, {
       expiresIn: "24h",
     });
-    // console.log(token)
-    // res.setHeader("token", token);
     return res.status(200).json({
       message: "user loggedin successfully",
-      data: { userId: user._id, username:email, token: token },
+      data: { userId: user._id, username:user.username, token: token },
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });

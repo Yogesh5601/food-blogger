@@ -13,7 +13,6 @@ cloudinary.config({
 // post new blog
 router.post("/", async (req, res, next) => {
   try {
-    
     const file = req.files.photo;
     const imageUrl = await cloudinary.uploader.upload(file.tempFilePath);
     const blogDetails = {
@@ -89,7 +88,6 @@ router.put("/:id", auth, async (req, res) => {
   try {
     const file = req.files.photo;
     const imageUrl = await cloudinary.uploader.upload(file.tempFilePath);
-
     const updateBlog = await Blog.findOneAndUpdate(
       {
         _id: req.params.id,
@@ -121,8 +119,8 @@ router.delete("/", auth, async (req, res) => {
     let imageUrl = req.query.imageUrl;
     let urlArray = imageUrl.split("/");
     let image = urlArray[urlArray.length - 1];
-    let blogId = req.params.id;
     let imageName = image.split(".")[0];
+    let blogId = req.params.id;
     blogId = req.query.id;
     Blog.deleteOne({ _id: blogId })
       .then((result) => {
